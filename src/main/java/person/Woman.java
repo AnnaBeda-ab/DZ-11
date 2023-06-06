@@ -1,3 +1,5 @@
+package person;
+
 public class Woman extends Person {
     private String surnameFirst; //дівоче прізвище
 
