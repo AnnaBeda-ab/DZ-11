@@ -1,5 +1,5 @@
 import org.testng.Assert;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import person.Man;
 import person.Woman;
@@ -8,7 +8,7 @@ public class PersonCreationTests {
      Man man;
     public Woman woman;
 
-    @BeforeSuite(alwaysRun = true)
+    @BeforeClass(alwaysRun = true)
     public void createPerson() {
         man = new Man("John", "Break", 25, true);
         woman = new person.Woman("Alice", "Grey", 56, true);

@@ -4,14 +4,15 @@ import org.testng.annotations.Test;
 import person.Man;
 
 public class ManTests {
-    private Man man;
-    @BeforeClass
+    Man man;
+    @BeforeClass (alwaysRun = true)
     public void setMan(){
         man = new Man("John", "Break", 75, true);
     }
 
-    @Test(groups = {"alltests"}) //цей тест фейл,розраховую що бере об'єкт із 10 строки?
+    @Test(groups = {"alltests"}) 
     public void testManIsRetiredTrue() {
+        man.setAge(75);
         Assert.assertTrue(man.isRetired(), "Incorrect method for man");
     }
 
