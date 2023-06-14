@@ -5,33 +5,29 @@ import person.Person;
 import person.Woman;
 
 public class WomanTests {
-   Woman woman;
 
-    @BeforeClass (alwaysRun = true)
-    public void setWoman() {
-         woman = new Woman("Alice", "Grey", 65, true);
-    }
-
-    @Test(groups = {"alltests"})
+    @Test(groups = {"alltests"}) // тут я окремим провайдером переберу різні значення пенсійного віку для жінки
     public void testWomanIsRetiredTrue() {
-        woman.setAge(70);
+        Woman woman = new Woman("Alice", "Grey", 65, true);
         Assert.assertTrue(woman.isRetired(), "Incorrect method for women");
     }
 
     @Test(groups = {"alltests"})
-    public void testWomanIsRetiredFalse() {
-        woman.setAge(45);
+    public void testWomanIsRetiredFalse() { // тут я окремим провайдером переберу різні значення не пенсійного віку
+        Woman woman = new Woman("Alice", "Grey", 30, true);
         Assert.assertFalse(woman.isRetired(), "Incorrect method for women");
     }
 
     @Test(groups = {"alltests"})
     public void testRegisterPartner() {
+        Woman woman = new Woman("Alice", "Grey", 65, true);
         woman.registerPartner("Brown");
         Assert.assertEquals(woman.getLastName(), "Brown", "Error register partner");
     }
 
     @Test(groups = {"alltests"})
     public void testDeregisterPartner() {
+        Woman woman = new Woman("Alice", "Grey", 65, true);
         woman.registerPartner("Blue");
         woman.deregisterPartnership(true);
         Assert.assertEquals(woman.getLastName(), "Grey", "Error deregister partner");

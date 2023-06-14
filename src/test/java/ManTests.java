@@ -4,21 +4,16 @@ import org.testng.annotations.Test;
 import person.Man;
 
 public class ManTests {
-    Man man;
-    @BeforeClass (alwaysRun = true)
-    public void setMan(){
-        man = new Man("John", "Break", 75, true);
-    }
 
-    @Test(groups = {"alltests"}) 
+    @Test(groups = {"alltests"}) //тут я окремим провайдером переберу різні значення пенсійного віку
     public void testManIsRetiredTrue() {
-        man.setAge(75);
+        Man man = new Man("John", "Break", 75, true);
         Assert.assertTrue(man.isRetired(), "Incorrect method for man");
     }
 
-    @Test(groups = {"alltests"})
+    @Test(groups = {"alltests"}) //тут я окремим провайдером переберу різні значення не пенсійного віку
     public void testManIsRetiredFalse() {
-        man.setAge(45);
+        Man man = new Man("John", "Break", 45, true);
         Assert.assertFalse(man.isRetired(), "Incorrect method for man");
     }
 }

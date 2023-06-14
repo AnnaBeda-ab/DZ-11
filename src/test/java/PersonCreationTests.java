@@ -8,7 +8,8 @@ public class PersonCreationTests {
      Man man;
     public Woman woman;
 
-    @BeforeClass(alwaysRun = true)
+    @BeforeClass(alwaysRun = true) // тут буде провайдер з даними (не важливо, чоловік чи жінка, адже це наслідування класу Person,
+                                  // ми саме його перевіряємо?)
     public void createPerson() {
         man = new Man("John", "Break", 25, true);
         woman = new person.Woman("Alice", "Grey", 56, true);
